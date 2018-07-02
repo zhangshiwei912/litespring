@@ -49,23 +49,29 @@ public class DefaultBeanFactory extends DefaultSingletonBeanRegistry
 		return createBean(bd);
 	}
 	private Object createBean(BeanDefinition bd) {
-		// ´´½¨ÊµÀý
+		// ï¿½ï¿½ï¿½ï¿½Êµï¿½ï¿½
 		Object bean = instantiateBean(bd);
-		// ÉèÖÃÊôÐÔ
+		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 		populateBean(bd,bean);
 		
 		return bean;
 	}
 	
 	private Object instantiateBean(BeanDefinition bd) {
-		ClassLoader cl = this.getBeanClassLoader();
-		String beanClassName=bd.getBeanClassName();
-		try {
-			Class<?> clz = cl.loadClass(beanClassName);
-			return clz.newInstance();
-		} catch (Exception e) {
-			throw new BeanCreationException("´íÎóµÄbean");
+		if(bd.hasConstructorArgumentValues()){
+			ConstructorResolver resolver = new ConstructorResolver(this);
+			return resolver.autowireConstructor(bd);
+		}else {
+			ClassLoader cl = this.getBeanClassLoader();
+			String beanClassName=bd.getBeanClassName();
+			try {
+				Class<?> clz = cl.loadClass(beanClassName);
+				return clz.newInstance();
+			} catch (Exception e) {
+				throw new BeanCreationException("é”™è¯¯çš„bean");
+			}
 		}
+		
 	}
 	
 	private void populateBean(BeanDefinition bd, Object bean) {
