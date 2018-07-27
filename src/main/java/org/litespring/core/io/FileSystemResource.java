@@ -17,7 +17,12 @@ public class FileSystemResource implements Resource {
 		this.file=new File(path);
 	}
 	
-	
+	public FileSystemResource(File file) {
+		this.path=file.getPath();
+		this.file=file;
+	}
+
+
 	public InputStream getInputStream() throws Exception {
 		return new FileInputStream(this.file);
 	}

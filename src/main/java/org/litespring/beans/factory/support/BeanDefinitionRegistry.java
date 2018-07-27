@@ -4,5 +4,5 @@ import org.litespring.beans.BeanDefinition;
 
 public interface BeanDefinitionRegistry {
 	BeanDefinition getBeanDefinition(String beanId);
-	void registryBeanDefinition(String beanId,BeanDefinition bd);
+	void registerBeanDefinition(String beanId,BeanDefinition bd);
 }
