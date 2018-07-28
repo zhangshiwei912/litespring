@@ -1,6 +1,6 @@
 package org.litespring.beans.factory.config;
 
-import org.litespring.beans.BeansException;
+import org.litespring.beans.exception.BeansException;
 
 public interface InstantiationAwareBeanPostProcessor extends BeanPostProcessor{
 

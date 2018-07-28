@@ -11,7 +11,7 @@ import java.util.concurrent.ConcurrentHashMap;
 import org.litespring.beans.BeanDefinition;
 import org.litespring.beans.PropertyValue;
 import org.litespring.beans.SimpleTypeConverter;
-import org.litespring.beans.factory.BeanCreationException;
+import org.litespring.beans.exception.BeanCreationException;
 import org.litespring.beans.factory.config.BeanPostProcessor;
 import org.litespring.beans.factory.config.ConfigurableBeanFactory;
 import org.litespring.beans.factory.config.DependencyDescriptor;
@@ -60,9 +60,9 @@ public class DefaultBeanFactory extends DefaultSingletonBeanRegistry
 		return createBean(bd);
 	}
 	private Object createBean(BeanDefinition bd) {
-		//创建实例
+		//鍒涘缓瀹炰緥
 		Object bean = instantiateBean(bd);
-		//设置属性
+		//璁剧疆灞炴��
 		populateBean(bd, bean);
 		
 		return bean;		
@@ -133,7 +133,7 @@ public class DefaultBeanFactory extends DefaultSingletonBeanRegistry
 		
 		Class<?> typeToMatch = descriptor.getDependencyType();
 		for(BeanDefinition bd: this.beanDefinitionMap.values()){		
-			//确保BeanDefinition 有Class对象
+			//纭繚BeanDefinition 鏈塁lass瀵硅薄
 			resolveBeanClass(bd);
 			Class<?> beanClass = bd.getBeanClass();			
 			if(typeToMatch.isAssignableFrom(beanClass)){

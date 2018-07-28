@@ -8,7 +8,7 @@ import org.apache.commons.logging.LogFactory;
 import org.litespring.beans.BeanDefinition;
 import org.litespring.beans.ConstructorArgument;
 import org.litespring.beans.SimpleTypeConverter;
-import org.litespring.beans.factory.BeanCreationException;
+import org.litespring.beans.exception.BeanCreationException;
 import org.litespring.beans.factory.config.ConfigurableBeanFactory;
 
 
