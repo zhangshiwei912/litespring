@@ -12,7 +12,7 @@ import org.dom4j.io.SAXReader;
 import org.litespring.beans.BeanDefinition;
 import org.litespring.beans.ConstructorArgument;
 import org.litespring.beans.PropertyValue;
-import org.litespring.beans.exception.BeanDefinitionStoreException;
+import org.litespring.beans.factory.BeanDefinitionStoreException;
 import org.litespring.beans.factory.config.RuntimeBeanReference;
 import org.litespring.beans.factory.config.TypedStringValue;
 import org.litespring.beans.factory.support.BeanDefinitionRegistry;
@@ -67,9 +67,9 @@ public class XmlBeanDefinitionReader {
 				Element ele = (Element)iter.next();
 				String namespaceUri = ele.getNamespaceURI();
 				if(this.isDefaultNamespace(namespaceUri)){
-					parseDefaultElement(ele); //ÆÕÍ¨µÄbean
+					parseDefaultElement(ele); //æ™®é€šçš„bean
 				} else if(this.isContextNamespace(namespaceUri)){
-					parseComponentElement(ele); //ÀýÈç<context:component-scan>
+					parseComponentElement(ele); //ä¾‹å¦‚<context:component-scan>
 				} 
 				
 				

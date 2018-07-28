@@ -1,9 +1,13 @@
 package org.litespring.core.annotation;
 
+
+import static java.lang.String.format;
+
 import java.util.LinkedHashMap;
 import java.util.Map;
 
 import org.litespring.util.Assert;
+
 
 @SuppressWarnings("serial")
 public class AnnotationAttributes extends LinkedHashMap<String, Object> {
@@ -65,7 +69,7 @@ public class AnnotationAttributes extends LinkedHashMap<String, Object> {
 	private <T> T doGet(String attributeName, Class<T> expectedType) {
 		
 		Object value = this.get(attributeName);
-		Assert.notNull(value, "Attribute '%s' not found");
+		Assert.notNull(value, format("Attribute '%s' not found", attributeName));
 		return (T) value;
 	}
 

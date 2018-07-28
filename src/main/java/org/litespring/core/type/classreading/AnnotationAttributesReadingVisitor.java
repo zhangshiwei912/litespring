@@ -1,12 +1,17 @@
 package org.litespring.core.type.classreading;
 
+
+
 import java.util.Map;
 
 import org.litespring.core.annotation.AnnotationAttributes;
 import org.springframework.asm.AnnotationVisitor;
 import org.springframework.asm.SpringAsmInfo;
 
-public class AnnotationAttributesReadingVisitor extends AnnotationVisitor {
+
+
+
+final class AnnotationAttributesReadingVisitor extends AnnotationVisitor {
 
 	private final String annotationType;
 
@@ -31,4 +36,6 @@ public class AnnotationAttributesReadingVisitor extends AnnotationVisitor {
 	public void visit(String attributeName, Object attributeValue) {
 		this.attributes.put(attributeName, attributeValue);
 	}
+
+
 }

@@ -13,6 +13,7 @@ import org.litespring.dao.v4.AccountDao;
 import org.litespring.service.v4.PetStoreService;
 
 public class DependencyDescriptorTest {
+
 	@Test
 	public void testResolveDependency() throws Exception{
 		
@@ -26,4 +27,5 @@ public class DependencyDescriptorTest {
 		Object o = factory.resolveDependency(descriptor);
 		Assert.assertTrue(o instanceof AccountDao);
 	}
+
 }
